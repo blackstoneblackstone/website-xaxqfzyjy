@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+		<title>{dede:global.cfg_webname/}</title>
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		
+		<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery1.42.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.SuperSlide.2.1.1.js"></script>
+	</head>
+	
+	<body>
+		
+		{dede:include filename="head.htm"/}
+		
+		<div class="slider">
+			<div class="bd">
+				<ul>
+					{dede:arclist typeid=28 row=5 orderby='weight' orderway='asc'}
+					<li>
+						<!--<a target="_blank" href="[field:arcurl/]">-->
+							<img src="[field:picname/]" />
+						<!--</a>-->
+					</li>
+					{/dede:arclist}	
+				</ul>
+			</div>
+	
+			<div class="hd"><ul></ul></div>
+	
+			<div class="pnBtn prev">
+				<span class="blackBg"></span>
+				<a class="arrow" href="javascript:void(0)"></a>
+			</div>
+			<div class="pnBtn next">
+				<span class="blackBg"></span>
+				<a class="arrow" href="javascript:void(0)"></a>
+			</div>
+	
+		</div>
+	
+		<script type="text/javascript">
+			jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
+			/* 控制左右按钮显示 */
+			jQuery(".slider").hover(function(){ jQuery(this).find(".arrow").stop(true,true).fadeIn(300) },function(){ jQuery(this).find(".arrow").fadeOut(300) });
+			/* 调用SuperSlide */
+			jQuery(".slider").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop",  autoPlay:true, vis:3, autoPage:true, trigger:"click", interTime:4000 });
+		</script>
+		
+		<div class="index_main">
+			<div class="index_main_wrap">
+				<div class="part1">
+					<div class="part1_l">
+						{dede:type typeid=14}
+						<div class="part_tit"><p class="part_tit_wrap">我院要闻<span class="part_tit_en">News</span></p><a href="[field:typelink/]" class="part_title_more">更多</a></div>
+						{/dede:type}
+						<div class="part_main">
+							<div id="slideBox" class="slideBox">
+								<div class="bd">
+									<ul>
+										{dede:arclist typeid=14 limit="0,1" titlelen=100 orderby='pubdate'}
+										<li>
+											<div class="slideBox_left"><a href="[field:arcurl/]"><img src="[field:picname/]"></a></div>
+											<div class="slideBox_right">
+												<div class="slideBox_tit"><a href="[field:arcurl/]">[field:title/]</a></div>
+												<div class="slideBox_desc">[field:description function="cn_substr(@me,150)"/]...<a href="[field:arcurl/]">[详细]</a></div>
+												<div class="slideBox_date">[field:pubdate function=GetDateMK(@me)/]</div>
+											</div>
+										</li>
+										{/dede:arclist}
+									</ul>
+								</div>
+							</div>
+					
+							<script type="text/javascript">
+								jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+							</script>
+							
+							<div class="part1_left_list">
+								<ul>
+									{dede:arclist typeid=14 limit="1,4" titlelen=100 orderby='pubdate'}
+									<li><a href="[field:arcurl/]">[field:title/]<span class="list_date">[field:pubdate function=GetDateMK(@me)/]</span></a></li>
+									{/dede:arclist}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="part1_r">
+						{dede:type typeid=23}
+						<div class="part_tit"><p class="part_tit_wrap">通知公告<span class="part_tit_en">Notice</span></p><a href="[field:typelink/]" class="part_title_more">更多</a></div>
+						{/dede:type}
+						<div class="part_main">
+							<ul>
+								{dede:arclist typeid=23 row=4 orderby='pubdate' titlelen=100}
+								<li [field:pubdate runphp='yes'] $ntime = time(); $day3 = 3600 * 24 * 3; if(($ntime - @me) < $day3) @me = "class='last'"; else @me = ""; [/field:pubdate]>
+									<a href="[field:arcurl/]">
+										<div class="part1_r_date">
+											<span class="part1_r_date_d">[field:pubdate function='strftime("%d",@me)'/]</span>
+											<span class="part1_r_date_ym">[field:pubdate function='strftime("%Y-%m",@me)'/]</span>
+										</div>
+										<div class="part1_r_info">
+											<div class="part1_r_tit">
+												[field:title/]
+											</div>
+											<div class="part1_r_desc">
+												[field:description function="cn_substr(@me,180)"/]...
+											</div>
+										</div>
+									</a>
+								</li>
+								{/dede:arclist}
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="part2">
+					<div class="part2_left">
+						<div class="slideTxtBox">
+							<div class="part2_r_tit">
+							{dede:type typeid=21}
+							<p class="part2_tit_wrap">[field:typename/]</p><a href="[field:typelink/]" class="part2_title_more">更多</a>
+							{/dede:type}
+							</div>
+							<div class="bd">
+								<ul>
+									{dede:arclist typeid=21 row=5 titlelen=100 orderby='pubdate'}
+									<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+									{/dede:arclist}
+								</ul>
+								<!--<ul>-->
+									<!--{dede:arclist typeid=20 row=7 orderby='pubdate'}-->
+									<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+									<!--{/dede:arclist}-->
+								<!--</ul>-->
+								<!--<ul>-->
+									<!--{dede:arclist typeid=16 row=7 orderby='pubdate'}-->
+									<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+									<!--{/dede:arclist}-->
+								<!--</ul>-->
+								<!--<ul>-->
+									<!--{dede:arclist typeid=17 row=7 orderby='pubdate'}-->
+									<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+									<!--{/dede:arclist}-->
+								<!--</ul>-->
+							</div>
+						</div>
+						<script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+					</div>
+					<div class="part2_right">
+						<div class="slideTxtBox">
+							<div class="part2_r_tit">
+								{dede:type typeid=24}
+								<p class="part2_tit_wrap">[field:typename/]</p><a href="[field:typelink/]" class="part2_title_more">更多</a>
+								{/dede:type}
+							</div>
+							<div class="bd">
+								<ul>
+									{dede:arclist typeid=24 row=5 titlelen=100 orderby='pubdate'}
+									<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+									{/dede:arclist}
+								</ul>
+								<!--<ul>-->
+								<!--{dede:arclist typeid=20 row=7 orderby='pubdate'}-->
+								<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+								<!--{/dede:arclist}-->
+								<!--</ul>-->
+								<!--<ul>-->
+								<!--{dede:arclist typeid=16 row=7 orderby='pubdate'}-->
+								<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+								<!--{/dede:arclist}-->
+								<!--</ul>-->
+								<!--<ul>-->
+								<!--{dede:arclist typeid=17 row=7 orderby='pubdate'}-->
+								<!--<li><span class="date">[field:pubdate function=GetDateMK(@me)/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>-->
+								<!--{/dede:arclist}-->
+								<!--</ul>-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="part3">
+					<div class="part3_tit">
+						{dede:type typeid=40}
+						<p class="part3_tit_wrap">企业合作</p>
+						<!--<a href="[field:typelink/]" class="part3_title_more">更多</a>-->
+						{/dede:type}
+					</div>
+					<div class="picScroll-left">
+							<a class="next"></a>
+							<a class="prev"></a>
+						<div class="bd">
+							<ul class="picList">
+								{dede:arclist typeid=40 row=10 orderby='pubdate'}
+								<li>
+									<div class="pic"><img src="[field:picname/]" /></div>
+									<div class="title">[field:title/]</div>
+								</li>
+								{/dede:arclist}
+							</ul>
+						</div>
+					</div>
+			
+					<script type="text/javascript">
+						jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:6,trigger:"click"});
+					</script>
+				</div>
+			</div>
+		</div>
+		
+		{dede:include filename="footer.htm"/}
+		
+	</body>
+</html>

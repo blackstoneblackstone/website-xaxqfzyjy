@@ -1,0 +1,83 @@
+		<div class="header">
+			<div class="header_wrap">
+				<div class="top_right">
+					<div class="homepage"><a href="/">学校主页</a></div>
+					<div class="search_box">
+						<form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+							<input type="text" name="q" class="search_txt" value="" placeholder="请输入关键词" />
+							<input type="submit" name="submit" class="search_btn" value="" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navigation">
+			<input type="hidden" value="{dede:field.typeid function='GetTopid(@me)'/}" id="tid" />
+			<ul id="nav" class="nav clearfix">
+				<li class='nLi' id="t0">
+					<h3><a href="/">首页</a></h3>
+				</li>
+				{dede:type typeid=1}
+				<li class="nLi hline" id="t[field:id/]">
+					<h3><a href="[field:typelink/]">[field:typename/]</a></h3>
+					{/dede:type}
+					<ul class="sub">
+						{dede:channel type='son' typeid=1}
+						<li><a href='[field:typeurl/]'>[field:typename/]</a> </li>
+						{/dede:channel}
+					</ul>
+				</li>
+				{dede:type typeid=6}
+				<li class="nLi hline" id="t[field:id/]">
+					<h3><a href="[field:typelink/]">[field:typename/]</a></h3>
+					{/dede:type}
+					<ul class="sub">
+						{dede:channel type='son' typeid=6}
+						<li><a href='[field:typeurl/]'>[field:typename/]</a> </li>
+						{/dede:channel}
+					</ul>
+				</li>
+				{dede:type typeid=46}
+				<li class="nLi hline" id="t[field:id/]">
+					<h3><a href="[field:typelink/]">[field:typename/]</a></h3>
+					{/dede:type}
+					<ul class="sub">
+						{dede:channel type='son' typeid=46}
+						<li><a href='[field:typeurl/]'>[field:typename/]</a> </li>
+						{/dede:channel}
+					</ul>
+				</li>
+				{dede:type typeid=25}
+				<li class="nLi hline" id="t[field:id/]">
+					<h3><a href="[field:typelink/]">[field:typename/]</a></h3>
+					{/dede:type}
+				</li>
+				{dede:type typeid=22}
+				<li class="nLi hline" id="t[field:id/]">
+					<h3><a href="[field:typelink/]">[field:typename/]</a></h3>
+					{/dede:type}
+				</li>
+			</ul>
+			
+			<script>
+				$(function(){
+					var tid=$("#tid").val();
+					if(tid==""){
+						$("#t0").addClass("cur");
+					}else{
+						$("#t"+tid).addClass("cur");
+					}
+				})
+			</script>
+
+			<script id="jsID" type="text/javascript">
+				jQuery("#nav").slide({ 
+					type:"menu",// 效果类型，针对菜单/导航而引入的参数（默认slide）
+					titCell:".nLi", //鼠标触发对象
+					targetCell:".sub", //titCell里面包含的要显示/消失的对象
+					effect:"slideDown", //targetCell下拉效果
+					delayTime:300 , //效果时间
+					triggerTime:0, //鼠标延迟触发时间（默认150）
+				});
+			</script>
+		</div>

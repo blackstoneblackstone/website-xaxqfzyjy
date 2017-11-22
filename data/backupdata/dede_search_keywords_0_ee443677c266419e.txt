@@ -1,0 +1,2 @@
+INSERT INTO `dede_search_keywords` VALUES('1','阿萨德','阿萨德 萨德','1','0','1481339082','0','0');
+INSERT INTO `dede_search_keywords` VALUES('2','测试','测试','2','8','1481533593','0','0');

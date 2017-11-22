@@ -1,0 +1,30 @@
+<?php
+$typeArr[1] = '学院概况';
+$typeArr[2] = '学院简介';
+$typeArr[3] = '学院领导';
+$typeArr[4] = '人文学院办公室';
+$typeArr[5] = '学生工作办公室';
+$typeArr[6] = '师资队伍';
+$typeArr[7] = '哲学系';
+$typeArr[8] = '中文系';
+$typeArr[9] = '艺术系';
+$typeArr[10] = '历史系';
+$typeArr[11] = '生命科学与生命教育研究中心';
+$typeArr[12] = '高等教育研究所';
+$typeArr[13] = '学科建设';
+$typeArr[14] = '学院新闻';
+$typeArr[15] = '学术动态';
+$typeArr[16] = '本科教学';
+$typeArr[17] = '研究生工作';
+$typeArr[18] = '教学科研';
+$typeArr[19] = '党群工作';
+$typeArr[20] = '学生工作';
+$typeArr[21] = '管理制度';
+$typeArr[22] = '人才招聘';
+$typeArr[23] = '通知公告';
+$typeArr[24] = '专题报道';
+$typeArr[25] = '学生活动';
+$typeArr[26] = '隐藏分类';
+$typeArr[27] = '二维码';
+$typeArr[28] = '首页幻灯片';
+?>

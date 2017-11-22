@@ -1,0 +1,12 @@
+			<div class="page_right">
+				<div class="page_right_p1">{dede:field name='typeid' function="GetTopTypename(@me) /}</div>
+				<div class="page_right_nav">
+					<ul>
+						<li class="gray"></li>
+						{dede:channel type='son' row='99' currentstyle='<li class=""><a href="~typelink~" ~rel~>—~typename~</a></li>'}
+						<li><a href="[field:typeurl/]">—[field:typename/]</a></li>
+						{/dede:channel}
+					</ul>
+				</div>
+				<div class="page_right_ad"><img src="{dede:global.cfg_templets_skin/}/images/ad.png" /></div>
+			</div>

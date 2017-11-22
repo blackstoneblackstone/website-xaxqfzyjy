@@ -1,0 +1,31 @@
+		<div class="footer">
+			<div class="footer_wrap">
+				<div class="footer_part">
+					<div class="footer_part_tit">联系我们</div>
+					<p class="footer_p footer_tel">{dede:global.cfg_tel/}</p>
+					<p class="footer_p footer_email">{dede:global.cfg_email/}</p>
+					<p class="footer_p footer_add">{dede:global.cfg_add/}</p>
+					<p class="footer_p footer_zip">{dede:global.cfg_zip/}</p>
+				</div>
+				<div class="footer_part">
+					<div class="footer_part_tit">言之有范</div>
+					<div class="footer_part3">
+						{dede:arclist row=1 idlist='57'}
+						<img src="[field:picname/]" style="width: 70%"/>
+						{/dede:arclist}
+					</div>
+				</div>
+				<div class="footer_part3">
+					<div class="footer_part_tit">中传雄安新区发展研究院</div>
+					<div class="footer_part3">
+						{dede:arclist row=1 idlist='25'} 
+						<img src="[field:picname/]" style="width: 70%"/>
+						{/dede:arclist}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="cpy">
+			<div class="cpy_wrap">{dede:global.cfg_powerby/}&nbsp;&nbsp;&nbsp;&nbsp;统计：<script type="text/javascript" src="{dede:field name='phpurl'/}/stat.php"></script>次</div>
+		</div>

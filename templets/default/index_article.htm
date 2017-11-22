@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+		<title>{dede:field name='typename'/}_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+		
+		<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery1.42.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.SuperSlide.2.1.1.js"></script>
+	</head>
+	
+	<body>
+		
+		{dede:include filename="head.htm"/}
+		
+		<div class="subbanner"></div>
+		
+		<div class="page_wrap">
+			<div class="page_left">
+				<div class="position">
+					{dede:field name='position'/}
+				</div>
+				<div class="page_main">
+					<div class="page_tit">{dede:field name='typename'/}</div>
+					<div class="page_info"></div>
+					<div class="page_body">{dede:field.content/}</div>
+				</div>
+			</div>
+			
+			{dede:include filename="right.htm"/}
+			
+		</div>
+		
+		<div class="clear"></div>
+		
+		{dede:include filename="footer.htm"/}
+		
+	</body>
+</html>

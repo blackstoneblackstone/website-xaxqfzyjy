@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+		<title>搜索结果_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+		
+		<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery1.42.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.SuperSlide.2.1.1.js"></script>
+	</head>
+	
+	<body>
+		
+		{dede:include filename="head.htm"/}
+		
+		<div class="subbanner"></div>
+		
+		<div class="page_wrap">
+			<div class="page_left">
+				<div class="position">
+					{dede:field name='position'/}
+				</div>
+				<ul class="newslist">
+					{dede:list pagesize='10'}
+					<li>
+						<a href="[field:arcurl/]">
+							<div class="item_pic"><img src="[field:picname/]" /></div>
+							<div class="item_right">
+								<div class="item_tit">[field:title/]</div>
+								<div class="item_desc">[field:description function="cn_substr(@me,200)"/]</div>
+								<div class="item_date">[field:pubdate function="MyDate('Y-m-d H:i:s',@me)"/]</div>
+							</div>
+						</a>
+					</li>
+					{/dede:list}
+				</ul>
+				<div class="page">
+					{dede:pagelist istitem='index,pre,next,info,end,' /}
+				</div>
+			</div>
+			
+			<div class="page_right">
+				<div class="page_right_p1">搜索结果</div>
+				<div class="page_right_nav">
+					<ul>
+						<li class="gray"></li>
+						{dede:channel type='top'}
+						<li><a href="[field:typeurl/]">—[field:typename/]</a></li>
+						{/dede:channel}
+					</ul>
+				</div>
+				<div class="page_right_ad"><img src="{dede:global.cfg_templets_skin/}/images/ad.png" /></div>
+			</div>
+			
+		</div>
+		
+		<div class="clear"></div>
+		
+		{dede:include filename="footer.htm"/}
+		
+	</body>
+</html>

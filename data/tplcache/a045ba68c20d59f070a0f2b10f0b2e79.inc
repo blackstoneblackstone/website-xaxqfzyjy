@@ -1,0 +1,1 @@
+<div class="part_tit"><p class="part_tit_wrap">学院动态<span class="part_tit_en">News</span></p><a href="[field:typelink/]" class="part_title_more">更多</a></div>
