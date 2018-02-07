@@ -63,11 +63,11 @@ if($dopost=='login')
 {
     $validate = empty($validate) ? '' : strtolower(trim($validate));
     $svali = strtolower(GetCkVdValue());
-    if(($validate=='' || $validate != $svali) && preg_match("/6/",$safe_gdopen)){
-        ResetVdValue();
-        ShowMsg('验证码不正确!','login.php',0,1000);
-        exit;
-    } else {
+    // if(($validate=='' || $validate != $svali) && preg_match("/6/",$safe_gdopen)){
+    //     ResetVdValue();
+    //     ShowMsg('验证码不正确!','login.php',0,1000);
+    //     exit;
+    // } else {
         $cuserLogin = new userLogin($admindir);
         if(!empty($userid) && !empty($pwd))
         {
@@ -111,7 +111,7 @@ if($dopost=='login')
             ShowMsg('用户和密码没填写完整!','login.php',0,1000);
 			exit;
         }
-    }
+    // }
 }
 
 include('templets/login.htm');
